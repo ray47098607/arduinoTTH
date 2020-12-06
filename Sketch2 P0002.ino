@@ -6,6 +6,8 @@
 
 /*宣告定義 */
 
+
+#define relay01 42
 //RTC 7段顯示器 時鐘
 #include <DS3231.h>
 #include <TM1637TinyDisplay.h>
@@ -54,6 +56,7 @@ float f = dht.readTemperature(true);//讀取華氏溫度
 
 void setup() {
 
+
 	lcd.begin(16, 2);  //定義 LCD 為 2 列 16 行顯示器
 	lcd.clear();  //清除螢幕
 	lcd.setCursor(0, 0);   //游標移到左上角
@@ -70,39 +73,50 @@ void setup() {
 
 	//七段開啟
 	display.setBrightness(0x0f);
+
 	fdts();
+
 	display.showString("HELLO");
 	
 	lcd.setCursor(0, 1);
 	lcd.print("Done-------");
 	Serial.begin(600);
+	rtc.begin();
+	/*
+	rtc.setDate(6, 12, 2020);
+	rtc.setTime(10, 32, 0);
+	rtc.setDOW(7);
+	*/
+
+	pinMode(relay01, OUTPUT);
+	digitalWrite(relay01, HIGH);
 }
 
 // the loop function runs over and over again until power down or reset
 void loop() {
 
 	Serial.println("--");
-	
+
 	float h = dht.readHumidity();//讀取濕度
 	float t = dht.readTemperature();//讀取攝氏溫度
 	float f = dht.readTemperature(true);//讀取華氏溫度
-	
+
 	if (isnan(h) || isnan(t) || isnan(f)) {
 		lcd.clear();  //清除螢幕
 		lcd.setCursor(0, 0);   //游標移到左上角
 		lcd.println("DHT ERROR!!");
 		return;
 	}
-	char lineHum[100] ;//濕度
+	char lineHum[100];//濕度
 	char lineTemp[100];//濕度
 
-	sprintf(lineHum,  "Humidity: %d.%02d%%", (int)h, (int)(h * 100) % 100) ;
+	sprintf(lineHum, "Humidity: %d.%02d%%", (int)h, (int)(h * 100) % 100);
 	sprintf(lineTemp, "Temp:   %d.%02d *c", (int)t, (int)(t * 100) % 100);
 
 	Serial.print(lineHum);
-	
+	Serial.print("   ");
 	Serial.print(lineTemp);
-	
+
 	lcd.clear();  //清除螢幕
 	lcd.setCursor(0, 0);   //游標移到左上角
 	lcd.print(lineHum);
@@ -110,39 +124,58 @@ void loop() {
 
 	lcd.setCursor(0, 1);   //游標移到左上角
 	lcd.print(lineTemp);
-		delay(5000);
-
-	ti = rtc.getTime();
-	lcd.clear();
-	char line1[50], line2[50];
-	snprintf(line1, sizeof(line1), "Date:%02u-%02u-%02u", ti.year, ti.mon, ti.date);
-	snprintf(line2, sizeof(line2), "Time:%02u:%02u:%02u", ti.hour, ti.min, ti.sec);
-
-	lcd.setCursor(0, 0);
-	lcd.print(line1);
-	lcd.setCursor(0, 1);
-	lcd.print(line2);
-	delay(2500);
-}
+	delay(5000);
 
 
+	int i = 10;
+	do {
+		ti = rtc.getTime();
+		lcd.clear();
+		char lineYMD[50], lineHMS[50];
+		snprintf(lineYMD, sizeof(lineYMD), "Date:%02u-%02u-%02u", ti.year, ti.mon, ti.date);
+		snprintf(lineHMS, sizeof(lineHMS), "Time:  %02u:%02u:%02u", ti.hour, ti.min, ti.sec);
+		i--;
+		
+	 
 
-
-
-
-
-
-
-
-
-void T001(){
-	delay(5000);//延時5秒
-
-	delay(5000);//延時5秒
-
-
-}
+		lcd.setCursor(0, 0);
+		lcd.print(lineYMD);
+		lcd.setCursor(0, 1);
+		lcd.print(lineHMS);
 	
+		delay(1000);
+	}while (i > 0);
+	//LCD time repeat 10 times
+
+		delay(2000);
+		int  dptime= ti.hour *100+ ti.min ;
+		uint8_t segto;
+		int value = 1244;
+		segto = 0x80 | display.encodeDigit((value / 100) % 10);
+		display.setSegments(&segto);
+		display.showNumberDec(dptime);
+		
+	//LED time update
+		if (h>80)
+		{digitalWrite(relay01,LOW);
+		
+		}else digitalWrite(relay01, HIGH);
+		delay(1000);
+		
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
 
 
 void fdts() {
