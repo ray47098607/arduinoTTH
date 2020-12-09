@@ -83,9 +83,9 @@ void setup() {
 	Serial.begin(600);
 	rtc.begin();
 	/*
-	rtc.setDate(6, 12, 2020);
-	rtc.setTime(10, 32, 0);
-	rtc.setDOW(7);
+	rtc.setDate(9, 12, 2020);
+	rtc.setTime(22, 41, 0);
+	rtc.setDOW(3);
 	*/
 
 	pinMode(relay01, OUTPUT);
@@ -115,7 +115,7 @@ void loop() {
 
 	Serial.print(lineHum);
 	Serial.print("   ");
-	Serial.print(lineTemp);
+	Serial.println(lineTemp);
 
 	lcd.clear();  //清除螢幕
 	lcd.setCursor(0, 0);   //游標移到左上角
@@ -135,7 +135,8 @@ void loop() {
 		snprintf(lineYMD, sizeof(lineYMD), "Date:%02u-%02u-%02u", ti.year, ti.mon, ti.date);
 		snprintf(lineHMS, sizeof(lineHMS), "Time:  %02u:%02u:%02u", ti.hour, ti.min, ti.sec);
 		i--;
-		
+		Serial.println(lineYMD);
+		Serial.println(lineHMS);
 	 
 
 		lcd.setCursor(0, 0);
