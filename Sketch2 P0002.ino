@@ -7,7 +7,7 @@
 /*宣告定義 */
 
 
-#define relay01 42
+#define relay01 31
 //RTC 7段顯示器 時鐘
 #include <DS3231.h>
 #include <TM1637TinyDisplay.h>
@@ -83,9 +83,9 @@ void setup() {
 	Serial.begin(600);
 	rtc.begin();
 	/*
-	rtc.setDate(9, 12, 2020);
-	rtc.setTime(22, 41, 0);
-	rtc.setDOW(3);
+	rtc.setDate(12, 12, 2020);
+	rtc.setTime(20, 15, 0);
+	rtc.setDOW(6);
 	*/
 
 	pinMode(relay01, OUTPUT);
@@ -157,10 +157,15 @@ void loop() {
 		display.showNumberDec(dptime);
 		
 	//LED time update
+		
 		if (h>80)
 		{digitalWrite(relay01,LOW);
 		
-		}else digitalWrite(relay01, HIGH);
+		}
+		else if (h < 60) {
+			digitalWrite(relay01, HIGH);
+		};
+
 		delay(1000);
 		
 
