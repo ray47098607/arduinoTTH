@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding ="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+  <PropertyGroup Label="Globals" >
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{78c30a1b-5f51-442b-b8f1-d537807ab490}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\items.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)src\menu.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)src\menuBase.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)src\menuIo.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)src\nav.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)src\menuIO\serialOut.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)src\plugin\barField.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)src\plugin\cancelField.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\baseMacros.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\items.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\itemsTemplates.hpp" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\macros.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menu.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuBase.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuDefs.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIo.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\nav.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\shadows.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\adafruitGfxOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\altKeyIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\altKeyMapDef.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\analogAxisIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\ansiSerialOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\chainStream.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\clickEncoderIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\encoderIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\esp8266Out.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\esp8266Out.hpp" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\htmlFmt.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\I2CkeypadIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\interruptPins.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\jsFmt.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\jsonFmt.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\jsonFmt.hpp" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\keyIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\keyMapDef.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\keypadIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\lcdOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\liquidCrystalOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\liquidCrystalOutI2C.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\OzOledAsciiOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\PCF8574KeyIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\PCF8574Out.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\rotaryEventIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\serialIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\serialIO.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\serialOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\softKeyIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\SSD1306AsciiOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\stringIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\tftOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\TFT_eSPIOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\TFT_HX8357Out.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\u8g2Out.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\U8GLibOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\U8x8Out.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\uartOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\UCGLibOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\urtouchIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\utftOut.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\utouchIn.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\xmlFmt.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\menuIO\xmlFmt.hpp" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\plugin\barField.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\plugin\cancelField.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\plugin\SdFatMenu.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\plugin\SDMenu.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)src\plugin\userMenu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="$(MSBuildThisFileDirectory)keywords.txt" />
+<Text Include="$(MSBuildThisFileDirectory)library.properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)library.json" />
+<None Include="$(MSBuildThisFileDirectory)LICENSE" />
+<None Include="$(MSBuildThisFileDirectory)README.md" />
+  </ItemGroup>
+</Project>
