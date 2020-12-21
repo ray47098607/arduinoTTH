@@ -17,13 +17,17 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TM1637TinyDisplay-1.3.0", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DS3231-0.0.0", "Libraries\DS3231\0.0.0\DS3231\DS3231-0.0.0.vcxitems", "{A22AE020-0542-4DDC-B84F-977453F8E353}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArduinoMenu_library-4.21.4", "Libraries\ArduinoMenu_library\4.21.4\ArduinoMenu_library\ArduinoMenu_library-4.21.4.vcxitems", "{78C30A1B-5F51-442B-B8F1-D537807AB490}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Libraries\LiquidCrystal\1.0.6\LiquidCrystal\LiquidCrystal-1.0.6.vcxitems*{0cf0047e-84c2-4388-affd-5db5f10bf11f}*SharedItemsImports = 9
+		Libraries\ArduinoMenu_library\4.21.4\ArduinoMenu_library\ArduinoMenu_library-4.21.4.vcxitems*{78c30a1b-5f51-442b-b8f1-d537807ab490}*SharedItemsImports = 9
 		Libraries\DS3231\0.0.0\DS3231\DS3231-0.0.0.vcxitems*{a22ae020-0542-4ddc-b84f-977453f8e353}*SharedItemsImports = 9
 		Libraries\TM1637TinyDisplay\1.3.0\TM1637TinyDisplay\TM1637TinyDisplay-1.3.0.vcxitems*{b79f858a-222c-49c4-be94-7822078e7fd8}*SharedItemsImports = 9
 		Libraries\Adafruit_Unified_Sensor\1.1.4\Adafruit_Unified_Sensor\Adafruit_Unified_Sensor-1.1.4.vcxitems*{bbd58a05-fc6a-4dee-9318-30f2974a5c84}*SharedItemsImports = 9
 		Libraries\Adafruit_Unified_Sensor\1.1.4\Adafruit_Unified_Sensor\Adafruit_Unified_Sensor-1.1.4.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
+		Libraries\ArduinoMenu_library\4.21.4\ArduinoMenu_library\ArduinoMenu_library-4.21.4.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
 		Libraries\DHT_sensor_library\1.4.0\DHT_sensor_library\DHT_sensor_library-1.4.0.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
 		Libraries\DS3231\0.0.0\DS3231\DS3231-0.0.0.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
 		Libraries\LiquidCrystal\1.0.6\LiquidCrystal\LiquidCrystal-1.0.6.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
