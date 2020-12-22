@@ -39,28 +39,32 @@ LiquidCrystal lcd(RS, E, D4, D5, D6, D7);  //建立 LCD 物件
 analogAxis<JOY_X, 10, false> ay;
 
 #define LEDPIN LED_BUILTIN
-#define MAX_DEPTH 1
+#define MAX_DEPTH 2
 
 unsigned int on01 = 10;
 unsigned int off01 = 90;
 unsigned int on02 = 10;
 unsigned int off02 = 90;
 int test = 500;
-
-MENU(mainMenu, "test menu", Menu::doNothing, Menu::noEvent, Menu::wrapStyle
-     , OP("Op1", doNothing, noEvent)
-     , OP("Op2", doNothing, noEvent)
-     , sub
-     , FIELD(on02, "On02", "ms", 0, 1000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::noStyle)
-     , FIELD(off02, "Off02", "ms", 0, 10000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::noStyle)
-     , FIELD(test, "test", "ms", 0, 10000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::noStyle)
-     , EXIT("<Back")
-    );
 MENU(led01menu, "led01", Menu::doNothing, Menu::noEvent, Menu::wrapStyle
      , FIELD(on01, "On01", "ms", 0, 1000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::noStyle)
      , FIELD(off01, "Off01", "ms", 0, 10000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::noStyle)
      , EXIT("<Back")
     );
+MENU(led02menu, "led02", Menu::doNothing, Menu::noEvent, Menu::wrapStyle
+      , FIELD(on02, "On02", "ms", 0, 1000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::wrapStyle)
+     , FIELD(off02, "Off02", "ms", 0, 10000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::wrapStyle)
+     , EXIT("<Back")
+    );
+MENU(mainMenu, "test menu", Menu::doNothing, Menu::noEvent, Menu::wrapStyle
+     , OP("Op1", doNothing, noEvent)
+     , OP("Op2", doNothing, noEvent)
+     , SUBMENU(led01menu)
+    
+     , FIELD(test, "test", "ms", 0, 10000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::noStyle)
+     , EXIT("<Back")
+    );
+
 
 
 #define joyBtn 8
@@ -71,7 +75,6 @@ serialIn menuSerialIn(Serial);
 
 MENU_INPUTS(in, &ay, &btns, &menuSerialIn);
 
-#define MAX_DEPTH 1
 
 
 MENU_OUTPUTS(out, MAX_DEPTH
@@ -97,7 +100,7 @@ void setup() {
   lcd.println("control the menu navigation");
   delay(5000);
   pinMode(12, OUTPUT);
-  pinMode(11, OUTPUT);
+  pinMode(11, OUTPUT); 
 }
 
 bool blink01(int on01, int off01) {
