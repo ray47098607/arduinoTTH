@@ -50,7 +50,7 @@ int test = 500;
 MENU(mainMenu, "test menu", Menu::doNothing, Menu::noEvent, Menu::wrapStyle
      , OP("Op1", doNothing, noEvent)
      , OP("Op2", doNothing, noEvent)
-     
+     , sub
      , FIELD(on02, "On02", "ms", 0, 1000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::noStyle)
      , FIELD(off02, "Off02", "ms", 0, 10000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::noStyle)
      , FIELD(test, "test", "ms", 0, 10000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::noStyle)
@@ -59,7 +59,8 @@ MENU(mainMenu, "test menu", Menu::doNothing, Menu::noEvent, Menu::wrapStyle
 MENU(led01menu, "led01", Menu::doNothing, Menu::noEvent, Menu::wrapStyle
      , FIELD(on01, "On01", "ms", 0, 1000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::noStyle)
      , FIELD(off01, "Off01", "ms", 0, 10000, 10, 1, Menu::doNothing, Menu::noEvent, Menu::noStyle)
-);
+     , EXIT("<Back")
+    );
 
 
 #define joyBtn 8
@@ -95,7 +96,8 @@ void setup() {
   lcd.setCursor(0, 1);
   lcd.println("control the menu navigation");
   delay(5000);
-
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
 }
 
 bool blink01(int on01, int off01) {
